@@ -1,12 +1,14 @@
 "use client";
 
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useDispatch } from "react-redux";
 import { auth } from "../../firebaseConfig";
-import { useState } from "react";
+
 import { setUser } from "@/slices/authSlice";
 
 const Auth = () => {
@@ -18,6 +20,7 @@ const Auth = () => {
     setUserDetails({ ...userDetails, [name]: value });
   };
 
+  //should be moved to apis
   const handleAuth = async () => {
     try {
       const userCredential = isRegister

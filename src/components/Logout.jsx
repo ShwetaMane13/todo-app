@@ -1,8 +1,10 @@
 "use client";
 
 import { useDispatch } from "react-redux";
+
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
+
 import { clearUser } from "@/slices/authSlice";
 
 const Logout = () => {

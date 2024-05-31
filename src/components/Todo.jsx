@@ -1,11 +1,14 @@
-import AddTodo from "./AddTodo";
-import { useDispatch, useSelector } from "react-redux";
-import Auth from "./Auth";
-import TodoList from "./TodoList";
 import { useState } from "react";
-import { addTodoToDB, fetchTodosfromDB, updateTodoInDB } from "@/apis/todos";
+
+import { useDispatch, useSelector } from "react-redux";
 import { serverTimestamp } from "firebase/firestore";
+
+import { addTodoToDB, fetchTodosfromDB, updateTodoInDB } from "@/apis/todos";
 import { addTodo, editTodo, setTodos } from "@/slices/todoSlice";
+
+import Auth from "./Auth";
+import AddTodo from "./AddTodo";
+import TodoList from "./TodoList";
 
 const Todo = () => {
   const [title, setTitle] = useState("");
@@ -17,8 +20,6 @@ const Todo = () => {
   const accessToken = useSelector((state) => state.auth.user.accessToken);
   const uid = useSelector((state) => state.auth.user.uid);
   const todos = useSelector((state) => state.todo.todos);
-
-  console.log("todos----->", todos);
 
   async function fetchTodos(uid) {
     const res = await fetchTodosfromDB(uid);

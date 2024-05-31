@@ -1,9 +1,11 @@
 "use client";
 
-import { deleteTodoInDB, updateTodoInDB } from "@/apis/todos";
-import { markDone, removeTodo } from "@/slices/todoSlice";
-import { serverTimestamp } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
+import { serverTimestamp } from "firebase/firestore";
+
+import { markDone, removeTodo } from "@/slices/todoSlice";
+import { deleteTodoInDB, updateTodoInDB } from "@/apis/todos";
+
 import Logout from "./Logout";
 
 const TodoList = (props) => {
